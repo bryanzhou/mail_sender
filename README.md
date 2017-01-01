@@ -4,7 +4,7 @@ A php tool for send email , can be used for curl or any other http tools
 RUN ENV : 
 
 1. apache + php  or nginx + php 
-2. linux server with sendmail service or postfix service (you can use yum install postfix to install the dependency if you are user a centos server like me )
+2. linux server with sendmail service or postfix service (you can use yum install postfix to install the dependency if you are using an centos server like me )
 
 USAGE:
 
