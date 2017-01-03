@@ -71,7 +71,7 @@ class MailGroupService
         if ($insertID > 0) {
             return $insertID;
         } else {
-            log_writer("mysql operation" , mysql_error());
+            log_writer("mysql operation", mysql_error());
             return $result;
         }
     }
@@ -118,5 +118,25 @@ class MailGroupService
     {
         $sql = "select * from group_member where group_name=${group}";
         return $this->queryFromMysql($sql);
+    }
+
+    public function getArrayMailGroupMember($group)
+    {
+        $totalArray = $this->getMailGroupMember($group);
+        $returnArray = array();
+        foreach ($totalArray as $memberInfo) {
+            $returnArray[] = $memberInfo['group_member'];
+        }
+        return $returnArray;
+    }
+
+    public function getArrayMailGroupInfo()
+    {
+        $totalArray = $this->getMailGroupInfo();
+        $returnArray = array();
+        foreach ($totalArray as $groupInfo) {
+            $returnArray[] = $groupInfo['group_name'];
+        }
+        return $returnArray;
     }
 }
