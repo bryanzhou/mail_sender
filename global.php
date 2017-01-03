@@ -7,6 +7,6 @@
  */
 
 include_once "../function.php";
-include_once "../class/MailGroupServer.php";
+include_once "../class/MailGroupService.php";
 
 ?>
