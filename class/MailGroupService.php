@@ -71,6 +71,7 @@ class MailGroupService
         if ($insertID > 0) {
             return $insertID;
         } else {
+            log_writer("mysql operation" , mysql_error());
             return $result;
         }
     }
