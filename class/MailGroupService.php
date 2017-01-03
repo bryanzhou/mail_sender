@@ -116,7 +116,7 @@ class MailGroupService
 
     public function getMailGroupMember($group)
     {
-        $sql = "select * from group_member where group_name=${group}";
+        $sql = "select * from group_member where group_name='${group}'";
         return $this->queryFromMysql($sql);
     }
 
