@@ -9,7 +9,7 @@ MYSQL_PASSWORD=
 
 dbDatabaseName="mail_group"
 
-connectMysql="mysql -h ${MYSQL_IP} -P ${MYSQL_PORT} -u ${MYSQL_USERNAME} -p ${MYSQL_PASSWORD} --default-character-set=utf8"
+connectMysql="mysql -h${MYSQL_IP} -P${MYSQL_PORT} -u${MYSQL_USERNAME} -p${MYSQL_PASSWORD} --default-character-set=utf8"
 
 ${connectMysql} -e "create database if not exists ${dbDatabaseName}";
 
