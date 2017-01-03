@@ -7,9 +7,9 @@
  */
 
 return array(
-    'serverIPPort' => "10.13.0.101:3306",
-    'username' => "root",
-    'password;' => "platQA#123",
+    'serverIPPort' => "",
+    'username' => "",
+    'password' => "",
     'databaseName' => "mail_group",
 );
 

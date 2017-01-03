@@ -63,7 +63,7 @@ class MailGroupService
 
         if (!$conn) {
             log_writer("Connect to mysql fail", "IPPort : " . $this->serverIPPort . " username : " . $this->username . " password : " . $this->password);
-            return array();
+            return false;
         }
         mysql_select_db($this->databaseName);
         $result = mysql_query($stringSql);
@@ -71,6 +71,7 @@ class MailGroupService
         if ($insertID > 0) {
             return $insertID;
         } else {
+            log_writer("mysql operation" , mysql_error());
             return $result;
         }
     }
@@ -83,7 +84,7 @@ class MailGroupService
 
     public function insertMailGroupMember($groupName, $groupMember)
     {
-        $sql = "insert into group_info ( group_name , group_member ) values ('${groupName}' , '${groupMember}' ) ;";
+        $sql = "insert into group_member ( group_name , group_member ) values ('${groupName}' , '${groupMember}' ) ;";
         return $this->insertMysql($sql);
     }
 
