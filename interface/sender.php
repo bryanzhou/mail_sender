@@ -30,12 +30,12 @@ USAGE:
 
 $mailGroupService = new MailGroupService();
 
-$groupList = $mailGroupService->getGroupInfo();
+$groupArray = $mailGroupService->getGroupInfo();
 
 $receiverArray = split(",", $receiver);
 $receiver = array();
 foreach ($receiverArray as $r) {
-    if (in_array($r, $groupList)) {
+    if (in_array($r, $groupArray)) {
         $memberArray = $mailGroupService->getGroupMember($r);
         array_merge($memberArray, $receiverArray);
     } else {
