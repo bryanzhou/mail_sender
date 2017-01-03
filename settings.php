@@ -9,7 +9,7 @@
 return array(
     'serverIPPort' => "",
     'username' => "",
-    'password;' => "",
+    'password' => "",
     'databaseName' => "mail_group",
 );
 
