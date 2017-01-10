@@ -29,7 +29,6 @@ class MailGroupService
 
         if (!$this->conn) {
             log_writer("Connect to mysql fail", "IPPort : " . $this->serverIPPort . " username : " . $this->username . " password : " . $this->password);
-            exit(1);
         }
     }
 
@@ -38,7 +37,9 @@ class MailGroupService
     */
     private function queryFromMysql($stringSql)
     {
-
+        if(!$this->conn) {
+            return array();
+        }
         mysql_select_db($this->databaseName);
         $result = mysql_query($stringSql);
 
@@ -61,10 +62,7 @@ class MailGroupService
      */
     private function insertMysql($stringSql)
     {
-        $conn = mysql_connect($this->serverIPPort, $this->username, $this->password);
-
-        if (!$conn) {
-            log_writer("Connect to mysql fail", "IPPort : " . $this->serverIPPort . " username : " . $this->username . " password : " . $this->password);
+        if (!$this->conn) {
             return false;
         }
         mysql_select_db($this->databaseName);
