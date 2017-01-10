@@ -36,5 +36,7 @@ switch ($_REQUEST['type']) {
     default:
         errorMsgAndExit("worng type ,need add or delete");
 }
-
+if($mailGroupService) {
+    $mailGroupService->closeDBConnection();
+}
 ?>

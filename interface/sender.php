@@ -98,6 +98,6 @@ $read
 } else {
     echo "not receiver a content file \n ";
 }
-
+$mailGroupService->closeDBConnection();
 
 ?>

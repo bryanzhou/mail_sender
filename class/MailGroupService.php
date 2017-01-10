@@ -13,6 +13,7 @@ class MailGroupService
     public $password;
     public $databaseName;
 
+    private $conn;
     function __construct()
     {
         $settings = include_once("../settings.php");
@@ -24,6 +25,12 @@ class MailGroupService
         } else {
             log_writer("Load settings fail", json_encode($settings));
         }
+        $this->conn = mysql_connect($this->serverIPPort, $this->username, $this->password);
+
+        if (!$this->conn) {
+            log_writer("Connect to mysql fail", "IPPort : " . $this->serverIPPort . " username : " . $this->username . " password : " . $this->password);
+            exit(1);
+        }
     }
 
     /*
@@ -31,12 +38,7 @@ class MailGroupService
     */
     private function queryFromMysql($stringSql)
     {
-        $conn = mysql_connect($this->serverIPPort, $this->username, $this->password);
 
-        if (!$conn) {
-            log_writer("Connect to mysql fail", "IPPort : " . $this->serverIPPort . " username : " . $this->username . " password : " . $this->password);
-            return array();
-        }
         mysql_select_db($this->databaseName);
         $result = mysql_query($stringSql);
 
@@ -75,7 +77,10 @@ class MailGroupService
             return $result;
         }
     }
-
+    public function closeDBConnection()
+    {
+        mysql_close($this->conn);
+    }
     public function insertMailGroupInfo($groupName, $groupOwner)
     {
         $sql = "insert into group_info ( group_name , group_owner ) values ('${groupName}' , '${groupOwner}' ) ;";
