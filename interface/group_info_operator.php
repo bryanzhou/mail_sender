@@ -6,7 +6,7 @@
  * Time: 下午3:21
  */
 include_once "../global.php";
-if ($_REQUEST['type'] == "" || $_REQUEST['group_name'] == "" || $_REQUEST['group_owner'] == "") {
+if ($_REQUEST['type'] == "" || $_REQUEST['group_name'] == "" || ($_REQUEST['type'] == "add" && $_REQUEST['group_owner'] == "")) {
     errorMsgAndExit("lost parameter , please read wiki");
 }
 
@@ -36,5 +36,8 @@ switch ($_REQUEST['type']) {
         break;
     default:
         errorMsgAndExit("worng type ,need add or delete");
+}
+if($mailGroupService){
+    $mailGroupService->closeDBConnection();
 }
 ?>

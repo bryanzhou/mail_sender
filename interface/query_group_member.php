@@ -20,5 +20,5 @@ $resultMemberArray = $mailGroupService->getMailGroupMember($groupName);
 $result['member'] = $resultMemberArray;
 
 echo json_encode($result);
-
+$mailGroupService->closeDBConnection();
 ?>

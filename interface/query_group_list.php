@@ -12,5 +12,5 @@ $resultGroupArray = $mailGroupService->getMailGroupInfo();
 $result['groups'] = $resultGroupArray;
 
 echo json_encode($result);
-
+$mailGroupService->closeDBConnection();
 ?>
