@@ -14,6 +14,7 @@ Description:
 This interface is used for send mail , all receivers can receive the mail。
 
 Arguments:
+
 |argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |receiver     |post/get|true      |string(split by comma)|
@@ -37,6 +38,7 @@ Description:
 This interface is used for send mail , all receivers can receive the mail.
 
 Arguments:
+
 |argu name    |method  |required  |description |
 |:-----------:|:------:|:--------:|:----------:|
 |receiver     |post/get|true      |string(can include mail group name;split by comma)|
@@ -58,6 +60,7 @@ Description:
 Add or delete a mail group,group owner will be the first member of the group.If you are deleting a mail group ,remeber all the members of the group will also be deleted.
 
 Arguments:
+
 |argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |type         |post/get|true      |string(add or delete)|
@@ -69,6 +72,7 @@ Description:
 Add or delete a mail group member.
 
 Arguments:
+
 |argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |type         |post/get|true      |string(add or delete)|
@@ -87,7 +91,8 @@ Description:
 Get mail group member list of a group.
 
 Arguments:
-|argu name    |method  |required  |description | 
+
+argu name    |method  |required  |description 
 |:-----------:|:------:|:--------:|:----------:|
 |group_name   |post/get|true      |string|
 
