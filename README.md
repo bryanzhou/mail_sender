@@ -14,9 +14,9 @@ Description:
 This interface is used for send mail , all receivers can receive the mail。
 
 Arguments:
-|argu name    |method  |required  |description ｜ 
+|argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
-|receiver     |post/get|true      |string(split by comma)｜
+|receiver     |post/get|true      |string(split by comma)|
 |from         |post/get|false     |string(mail sender, mail_service@noreply.com is the default value)|
 |subject      |post/get|true      |string| 
 |text         |post    |false     |string(content of the mail)|
@@ -37,9 +37,9 @@ Description:
 This interface is used for send mail , all receivers can receive the mail.
 
 Arguments:
-|argu name    |method  |required  |description ｜ 
+|argu name    |method  |required  |description |
 |:-----------:|:------:|:--------:|:----------:|
-|receiver     |post/get|true      |string(can include mail group name;split by comma)｜
+|receiver     |post/get|true      |string(can include mail group name;split by comma)|
 |from         |post/get|false     |string(mail sender, mail_service@noreply.com is the default value)|
 |subject      |post/get|true      |string| 
 |text         |post    |false     |string(content of the mail)|
@@ -58,7 +58,7 @@ Description:
 Add or delete a mail group,group owner will be the first member of the group.If you are deleting a mail group ,remeber all the members of the group will also be deleted.
 
 Arguments:
-|argu name    |method  |required  |description ｜ 
+|argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |type         |post/get|true      |string(add or delete)|
 |group_name   |post/get|true      |string(this name cannot repeat in global)|
@@ -69,7 +69,7 @@ Description:
 Add or delete a mail group member.
 
 Arguments:
-|argu name    |method  |required  |description ｜ 
+|argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |type         |post/get|true      |string(add or delete)|
 |group_name   |post/get|true      |string|
@@ -87,7 +87,7 @@ Description:
 Get mail group member list of a group.
 
 Arguments:
-|argu name    |method  |required  |description ｜ 
+|argu name    |method  |required  |description | 
 |:-----------:|:------:|:--------:|:----------:|
 |group_name   |post/get|true      |string|
 
