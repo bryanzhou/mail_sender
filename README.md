@@ -14,13 +14,14 @@ Description:
 This interface is used for send mail , all receivers can receive the mail。
 
 Arguments:
-
-1. receiver      post/get     string(split by comma)
-2. from          post/get     string(mail sender, mail_service@noreply.com is the default value)
-3. subject       post/get     string 
-4. text          post         string(content of the mail)
-5. content       post         file(or you can use the to upload the content)
-6. attachment    post         file
+|argu name    |method  |required  |description ｜ 
+|:-----------:|:------:|:--------:|:----------:|
+|receiver     |post/get|true      |string(split by comma)｜
+|from         |post/get|false     |string(mail sender, mail_service@noreply.com is the default value)|
+|subject      |post/get|true      |string| 
+|text         |post    |false     |string(content of the mail)|
+|content      |post    |false     |file(or you can use the to upload the content)|
+|attachment   |post    |false     |file|
 
 
 ## ADVANCE SUPPORT(MAIL GROUP)
@@ -36,13 +37,14 @@ Description:
 This interface is used for send mail , all receivers can receive the mail.
 
 Arguments:
-
-1. receiver      post/get     string(can include mail group name;split by comma)
-2. from          post/get     string(mail sender, mail_service@noreply.com is the default value)
-3. subject       post/get     string 
-4. text          post         string(content of the mail)
-5. content       post         file(or you can use the to upload the content)
-6. attachment    post         file
+|argu name    |method  |required  |description ｜ 
+|:-----------:|:------:|:--------:|:----------:|
+|receiver     |post/get|true      |string(can include mail group name;split by comma)｜
+|from         |post/get|false     |string(mail sender, mail_service@noreply.com is the default value)|
+|subject      |post/get|true      |string| 
+|text         |post    |false     |string(content of the mail)|
+|content      |post    |false     |file(or you can use the to upload the content)|
+|attachment   |post    |false     |file|
 
 ##### /front.php
 Description:  
@@ -56,20 +58,22 @@ Description:
 Add or delete a mail group,group owner will be the first member of the group.If you are deleting a mail group ,remeber all the members of the group will also be deleted.
 
 Arguments:
-
-1. type          post/get     string(add or delete)
-2. group_name    post/get     string(this name cannot repeat in global)
-3. group_owner   post/get     string(mail addr of owner, will be the first member of the mail group)
+|argu name    |method  |required  |description ｜ 
+|:-----------:|:------:|:--------:|:----------:|
+|type         |post/get|true      |string(add or delete)|
+|group_name   |post/get|true      |string(this name cannot repeat in global)|
+|group_owner  |post/get|true      |string(mail addr of owner, will be the first member of the mail group)|
 
 ##### /group_member_operator.php
 Description:  
 Add or delete a mail group member.
 
 Arguments:
-
-1. type          post/get     string(add or delete)
-2. group_name    post/get     string
-3. group_member  post/get     string(mail addr of group member)
+|argu name    |method  |required  |description ｜ 
+|:-----------:|:------:|:--------:|:----------:|
+|type         |post/get|true      |string(add or delete)|
+|group_name   |post/get|true      |string|
+|group_member |post/get|true      |string(mail addr of group member)|
 
 ##### /query_group_list.php
 Description:  
@@ -83,8 +87,9 @@ Description:
 Get mail group member list of a group.
 
 Arguments:
-
-1. group_name    post/get     string
+|argu name    |method  |required  |description ｜ 
+|:-----------:|:------:|:--------:|:----------:|
+|group_name   |post/get|true      |string|
 
 
 bryanzhou  
