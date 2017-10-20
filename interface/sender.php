@@ -24,6 +24,9 @@ USAGE:
 2. subject(get/post)	subject of the mail;
 3. from (get/post)	the mail sender (default zhouyuan1);
 4.  content(it should be post as a file or use text as a post parameter). \n
+5. attachment(post as a file)
+
+suggest you to use multipart form data when using curl 
 ";
     exit(0);
 }
@@ -43,7 +46,6 @@ foreach ($receiverArray as $r) {
     }
 }
 $receiver = implode(",", $receiver);
-
 if (isset($_FILES['content']) && ($_FILES['content']['tmp_name'] != "") || isset($_POST['text'])) {
     if (!isset($_POST['text']) && !is_uploaded_file($_FILES['content']['tmp_name'])) {
         echo '非法的文件';
