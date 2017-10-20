@@ -105,28 +105,28 @@ xmlhttp.send();
 	    <?php
 	  include_once "../global.php";
     function createTag($group, $mailGroupService)
-	    {
-$tagId = md5($group['group_name']);
-	$groupMemeberList = $mailGroupService->getMailGroupMember($group['group_name']);
-echo "<div class=\"panel panel-default\">";
-	echo "<div class=\"panel-heading\">";
-echo "<h4 class=\"panel-title\">";
-	echo "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#${tagId}\">";
-echo $group['group_name'] . '(' . $group['group_owner'] . ')(共'.count($groupMemeberList).'人) ';
-	echo "</a> 
-	 <a href=\"\" onclick=\"deleteGroup('" . $group['group_name'] . "')\" class=\"btn btn-danger btn-xs pull-right\" role=\"button\">删除邮件组</a>
- <a  class=\"btn btn-success btn-xs pull-right\" role=\"button\" data-toggle=\"modal\" data-target=\"#modal${tagId}\"> 增加成员</a>
-	 </h4></div>";
-echo "<div id=\"${tagId}\" class=\"panel-collapse collapse\">";
-	echo "<div class=\"panel-body\">";
-echo "<ul class=\"list-group\">";
-	foreach ($groupMemeberList as $groupMember) {
-	    $memId = rand(10000000, 1000000000);
-	echo "<li id=\"${memId}\" class=\"list-group-item\">" . $groupMember['group_member'] . "
-	     <a href=\"#${tagId}\" onclick=\"deleteGroupMember('" . $group['group_name'] . "' ,  '" . $groupMember['group_member'] . "' , '${memId}')\" class=\"btn btn-danger btn-xs pull-right\" role=\"button\">-</a>
-	  </li>";
-}
-echo "</div></div>";
+    {
+        $tagId = md5($group['group_name']);
+        $groupMemeberList = $mailGroupService->getMailGroupMember($group['group_name']);
+        echo "<div class=\"panel panel-default\">";
+        echo "<div class=\"panel-heading\">";
+        echo "<h4 class=\"panel-title\">";
+        echo "<a data-toggle=\"collapse\" data-parent=\"#accordion\" href=\"#${tagId}\">";
+        echo $group['group_name'] . '(' . $group['group_owner'] . ')(共'.count($groupMemeberList).'人) ';
+        echo "</a> 
+         <a href=\"\" onclick=\"deleteGroup('" . $group['group_name'] . "')\" class=\"btn btn-danger btn-xs pull-right\" role=\"button\">删除邮件组</a>
+        <a  class=\"btn btn-success btn-xs pull-right\" role=\"button\" data-toggle=\"modal\" data-target=\"#modal${tagId}\"> 增加成员</a>
+        </h4></div>";
+        echo "<div id=\"${tagId}\" class=\"panel-collapse collapse\">";
+        echo "<div class=\"panel-body\">";
+        echo "<ul class=\"list-group\">";
+        foreach ($groupMemeberList as $groupMember) {
+            $memId = rand(10000000, 1000000000);
+            echo "<li id=\"${memId}\" class=\"list-group-item\">" . $groupMember['group_member'] . "
+             <a href=\"#${tagId}\" onclick=\"deleteGroupMember('" . $group['group_name'] . "' ,  '" . $groupMember['group_member'] . "' , '${memId}')\" class=\"btn btn-danger btn-xs pull-right\" role=\"button\">-</a>
+             </li>";
+        }
+        echo "</div></div>";
 
 	echo "<div class=\"modal fade\" id=\"modal${tagId}\" tabindex=\"-1\" role=\"dialog\" aria-labelledby=\"myModalLabel\" aria-hidden=\"true\">
 	<div class=\"modal-dialog\">
