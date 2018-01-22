@@ -51,6 +51,7 @@ if (isset($_FILES['content']) && ($_FILES['content']['tmp_name'] != "") || isset
         echo '非法的文件';
     } else if ($_FILES['attachment']['tmp_name'] != "") {
         $body = isset($_POST['text']) ? $_POST['text'] : file_get_contents($_FILES['content']['tmp_name']);
+	$body = urldecode($body);
         $body = base64_encode($body);
         $boundary = "_000_AC2A887CCAC04FF398BBD975E33B692B_";
         //设置header
