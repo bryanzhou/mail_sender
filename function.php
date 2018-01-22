@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set("Asia/Shanghai");
 function log_writer($operation_name, $operation_info)
 {
     date_default_timezone_set("Asia/Shanghai");
@@ -39,10 +40,9 @@ function succMsgAndExit($msg)
 
 function createSurfixMessage($start, $sinceTime)
 {
-    $msg = "报警开始时间：" + date('Y-m-d H:i:s', $start) + "\r\n";
-    $msg = "持续时间：" + secToTime($sinceTime);
+    $msg = "报警开始时间：" . date('Y-m-d H:i:s', $start) . "\r\n";
+    $msg = $msg . "持续时间：" . secToTime($sinceTime);
     return $msg;
-
 }
 
 function secToTime($times)

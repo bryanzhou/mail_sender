@@ -46,7 +46,7 @@ if (isset($_REQUEST['warning_name'])) {
         '999999' => 86390
     );
     $memcache = new MemcacheService();
-    $cachedInfo = $memcache->gueryMemcache($_REQUEST['warning_name']);
+    $cachedInfo = $memcache->queryMemcache($_REQUEST['warning_name']);
     if ($cachedInfo == "") {
         /**
          * first send
@@ -59,25 +59,27 @@ if (isset($_REQUEST['warning_name'])) {
         $last = $cachedInfo['last_send_unix'];
         $count = $cachedInfo['send_count'];
         $warning = $cachedInfo['last_warning_unix'];
-        $start = cachedInfo['send_start_unix'];
+        $start = $cachedInfo['send_start_unix'];
 
         $now = time();
         $sendInterval = 86390;
         if (($now - $warning) < 60 * 10) {
             foreach ($speedSetting as $key => $value) {
-                if ($key <= $count) {
+                if ($key > $count) {
                     $sendInterval = $value;
                     break;
                 }
             }
             if (($now - $last) >= $sendInterval) {
                 $surfixFlag = true;
-                $surfixMessage = createSurfixMessage($start,$sinceTime);
+                $surfixMessage = createSurfixMessage($start,$now-$start);
                 $cachedInfo['send_count'] += 1;
                 $cachedInfo['last_send_unix'] = $now;
                 $cachedInfo['last_warning_unix'] = $now;
             } else {
                 $cachedInfo['last_warning_unix'] = $now;
+		echo "Reach Mail Speed Control ";
+		exit(0);
             }
         } else {
             /**
@@ -88,9 +90,8 @@ if (isset($_REQUEST['warning_name'])) {
             $cachedInfo['last_warning_unix'] = $cachedInfo['last_send_unix'];
             $cachedInfo['send_start_unix'] = $cachedInfo['last_send_unix'];
         }
-        $memcache->setMemcache($_REQUEST['warning_name'], $cachedInfo, 86400 * 2);
     }
-
+	$memcache->setMemcache($_REQUEST['warning_name'], $cachedInfo, 86400 * 2);
 }
 
 

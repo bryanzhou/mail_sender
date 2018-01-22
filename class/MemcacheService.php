@@ -33,7 +33,7 @@ class MemcacheService
         return $ans;
     }
 
-    function gueryMemcache($key)
+    function queryMemcache($key)
     {
         $value = $this->memcache->get($key);
         $value = unserialize($value);
