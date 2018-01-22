@@ -8,5 +8,5 @@
 
 include_once "../function.php";
 include_once "../class/MailGroupService.php";
-
+include_once "../class/MemcacheService.php";
 ?>

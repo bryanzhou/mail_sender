@@ -28,6 +28,7 @@ function errorMsgAndExit($msg)
     echo json_encode($json);
     exit(0);
 }
+
 function succMsgAndExit($msg)
 {
     $json['result'] = true;
@@ -35,4 +36,25 @@ function succMsgAndExit($msg)
     echo json_encode($json);
     exit(0);
 }
+
+function createSurfixMessage($start, $sinceTime)
+{
+    $msg = "报警开始时间：" + date('Y-m-d H:i:s', $start) + "\r\n";
+    $msg = "持续时间：" + secToTime($sinceTime);
+    return $msg;
+
+}
+
+function secToTime($times)
+{
+    $result = '00:00:00';
+    if ($times > 0) {
+        $hour = floor($times / 3600);
+        $minute = floor(($times - 3600 * $hour) / 60);
+        $second = floor((($times - 3600 * $hour) - 60 * $minute) % 60);
+        $result = $hour . '时' . $minute . '分' . $second;
+    }
+    return $result;
+}
+
 ?>
