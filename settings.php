@@ -11,6 +11,8 @@ return array(
     'username' => "root",
     'password' => "platQA#123",
     'databaseName' => "mail_group",
+    'memcacheIP' => '10.13.1.146',
+    'memcachePort' => '11211'
 );
 
 ?>
